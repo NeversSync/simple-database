@@ -7,14 +7,8 @@ const TEST_DIR = './data';
 const db = dbFactory(TEST_DIR);
 
 describe('db', () => {
-  const testCat = {
-    name: 'testcat',
-    type: 'best'
-  };
-  const testCat2 = {
-    name: 'testcat2',
-    type: 'worst'
-  };
+  const testCat = {name: 'testcat', type: 'best'};
+  const testCat2 = {name: 'testcat2',type: 'worst'};
 
   before((done) => {
     db.save('cats', testCat, (err, data) => {
@@ -68,10 +62,7 @@ describe('db', () => {
     });
 
     it('saves the data into a file and returns the object with a new id', (done) => {
-      const maru = {
-        name: 'maru',
-        type: 'scottish fold'
-      };
+      const maru = {name: 'maru', type: 'scottish fold'};
 
       db.save('cats', maru, (err, cat) => {
         if (err) return done(err);
@@ -108,9 +99,7 @@ describe('db', () => {
     });
 
     it('checks that array of the objects is in in expected order', (done) => {
-      const garfield = {
-        name: 'garfield',
-      };
+      const garfield = {name: 'garfield'};
 
       db.save('cats', garfield, err => {
         if (err) return done(err);
@@ -127,9 +116,7 @@ describe('db', () => {
   describe('db.update', () => {
 
     it('checks that targeted object is hit and content was updated and saved correctly', done => {
-      const tom = {
-        name: 'tom',
-      };
+      const tom = {name: 'tom'};
 
       db.save('cats', tom, (err, object) => {
         if (err) return done(err);
@@ -150,9 +137,7 @@ describe('db', () => {
   describe('db.remove', () => {
 
     it('checks that function deletes targeted file', done => {
-      const dutchess = {
-        name: 'dutchess',
-      };
+      const dutchess = {name: 'dutchess'};
 
       db.save('cats', dutchess, (err, object) => {
         if (err) return done(err);
@@ -172,9 +157,7 @@ describe('db', () => {
     });
 
     it('checks that function deletes a different file', done => {
-      const pauli = {
-        name: 'pauli',
-      };
+      const pauli = {name: 'pauli'};
 
       db.save('bears', pauli, (err, object) => {
         if (err) return done(err);
